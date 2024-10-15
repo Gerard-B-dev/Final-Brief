@@ -3,9 +3,10 @@
 import axios from 'axios'
 import { useUserStore } from './store/user'
 import { storeToRefs } from 'pinia'
+import router from './router' // Importar el router correctamente
 
 const apiClient = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
+    baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api',
     headers: {
         'Content-Type': 'application/json',
     },
@@ -26,5 +27,18 @@ apiClient.interceptors.request.use(
     }
 )
 
-export default apiClient
+// Interceptor para manejar respuestas globalmente
+apiClient.interceptors.response.use(
+    (response) => response,
+    (error) => {
+        if (error.response && error.response.status === 401) {
+            // Token inválido o expirado, redirigir al login
+            const userStore = useUserStore()
+            userStore.signOut()
+            router.push('/login')
+        }
+        return Promise.reject(error)
+    }
+)
 
+export default apiClient

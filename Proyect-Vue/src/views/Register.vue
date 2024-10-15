@@ -16,7 +16,13 @@
                 <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
                 <input type="password" v-model="confirmPassword" class="form-control" id="confirmPassword" required>
             </div>
-            <button type="submit" class="btn btn-custom w-100">Registrarse</button>
+            <div v-if="authError" class="alert alert-danger">
+                {{ authError }}
+            </div>
+            <button type="submit" class="btn btn-custom w-100" :disabled="isLoading">
+                <span v-if="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Registrarse
+            </button>
         </form>
         <p class="mt-3 text-center">
             ¿Ya tienes una cuenta? <router-link to="/login">Inicia Sesión aquí</router-link>
@@ -36,22 +42,29 @@ export default {
         const email = ref('');
         const password = ref('');
         const confirmPassword = ref('');
+        const isLoading = ref(false);
 
         const registerUser = async () => {
             if (password.value !== confirmPassword.value) {
                 alert('Las contraseñas no coinciden.');
                 return;
             }
-            await userStore.signUp(email.value, password.value);
-            // Opcional: Redirigir al usuario a la página de inicio de sesión
-            router.push('/login');
+            isLoading.value = true;
+            try {
+                await userStore.signUp(email.value, password.value);
+                router.push('/login');
+            } catch (error) {
+                // El error ya está manejado en el store y se refleja en authError
+            } finally {
+                isLoading.value = false;
+            }
         };
 
-        return { email, password, confirmPassword, registerUser };
+        return { email, password, confirmPassword, registerUser, authError: userStore.authError, isLoading };
     }
 };
 </script>
 
 <style scoped>
 /* Puedes añadir estilos específicos si es necesario */
-</style> 
+</style>
