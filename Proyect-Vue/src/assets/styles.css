@@ -1,0 +1,91 @@
+/* music-store-frontend/src/assets/styles.css */
+
+/* Estilos Globales */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.header {
+  background-color: #343a40;
+  color: white;
+  padding: 1rem 0;
+}
+
+.header .nav-link {
+  color: white !important;
+  margin-right: 1rem;
+}
+
+.header .nav-link:hover {
+  color: #ffc107 !important;
+}
+
+/* Footer */
+.footer {
+  background-color: #343a40;
+  color: white;
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer a {
+  color: #ffc107;
+  margin: 0 0.5rem;
+}
+
+.footer a:hover {
+  color: white;
+}
+
+/* Botones Personalizados */
+.btn-custom {
+  background-color: #ffc107;
+  border: none;
+  color: #343a40;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-custom:hover {
+  background-color: #e0a800;
+  color: #fff;
+}
+
+/* Tarjetas de Productos */
+.product-card {
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+/* Formularios */
+.form-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 4rem auto;
+}
+
+/* Dashboard */
+.dashboard {
+  padding: 2rem 0;
+}
+
+.task-list {
+  margin-top: 2rem;
+}
