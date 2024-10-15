@@ -9,7 +9,6 @@
         </div>
     </div>
 </template>
-
 <script>
 export default {
     props: {
@@ -23,7 +22,6 @@ export default {
     }
 };
 </script>
-
 <style scoped>
 .card-img-top {
     height: 300px;

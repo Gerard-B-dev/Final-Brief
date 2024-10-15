@@ -1,5 +1,4 @@
 <!-- src/components/Header.vue -->
-
 <template>
     <nav class="navbar navbar-expand-lg header">
         <div class="container">
@@ -28,26 +27,21 @@
         </div>
     </nav>
 </template>
-
 <script>
 import { useUserStore } from '../store/user';
 import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
-
 export default {
     setup() {
         const userStore = useUserStore();
         const { isAuthenticated, user } = storeToRefs(userStore);
-
         const logout = () => {
             userStore.signOut();
         };
-
         return { isAuthenticated, user, logout };
     },
 };
 </script>
-
 <style scoped>
 /* Estilos específicos del Header si es necesario */
 </style>

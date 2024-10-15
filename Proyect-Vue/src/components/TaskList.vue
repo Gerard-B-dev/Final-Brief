@@ -26,29 +26,23 @@
         </form>
     </div>
 </template>
-
 <script>
 import { useTaskStore } from '../store/task';
 import { ref, onMounted } from 'vue';
-
 export default {
     setup() {
         const taskStore = useTaskStore();
         const newTask = ref('');
-
         onMounted(() => {
             taskStore.fetchTasks();
         });
-
         const addTask = () => {
             taskStore.createTask(newTask.value);
             newTask.value = '';
         };
-
         const toggleTask = (task) => {
             taskStore.updateTask(task);
         };
-
         const editTask = (task) => {
             const updatedTitle = prompt("Editar Tarea", task.title);
             if (updatedTitle !== null && updatedTitle.trim() !== "") {
@@ -56,18 +50,15 @@ export default {
                 taskStore.updateTask(task);
             }
         };
-
         const deleteTask = (id) => {
             if (confirm("¿Estás seguro de eliminar esta tarea?")) {
                 taskStore.deleteTask(id);
             }
         };
-
         return { tasks: taskStore.tasks, newTask, addTask, toggleTask, editTask, deleteTask };
     }
 };
 </script>
-
 <style scoped>
 .text-decoration-line-through {
     text-decoration: line-through;

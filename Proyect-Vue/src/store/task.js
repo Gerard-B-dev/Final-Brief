@@ -1,8 +1,6 @@
 // src/store/task.js
-
 import { defineStore } from 'pinia';
 import apiClient from '../axios';
-
 export const useTaskStore = defineStore('task', {
     state: () => ({
         tasks: []

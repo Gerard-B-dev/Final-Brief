@@ -1,5 +1,4 @@
 <!-- src/views/Dashboard.vue -->
-
 <template>
     <div class="dashboard container">
         <h1 class="mb-4">Bienvenido a Music Store</h1>
@@ -18,14 +17,12 @@
         </div>
     </div>
 </template>
-
 <script>
 import TaskList from '../components/TaskList.vue';
 import ProductCard from '../components/ProductCard.vue';
 import { useProductStore } from '../store/product';
 import { onMounted } from 'vue';
 import { useTaskStore } from '../store/task';
-
 export default {
     components: {
         TaskList,
@@ -34,22 +31,18 @@ export default {
     setup() {
         const productStore = useProductStore();
         const taskStore = useTaskStore();
-
         onMounted(() => {
             productStore.fetchProducts();
             taskStore.fetchTasks();
         });
-
         const addToCart = (product) => {
             // Lógica para agregar al carrito
             alert(`Añadiste "${product.title}" al carrito.`);
         };
-
         return { products: productStore.products, addToCart };
     }
 };
 </script>
-
 <style scoped>
 /* Estilos específicos del Dashboard si es necesario */
 </style>

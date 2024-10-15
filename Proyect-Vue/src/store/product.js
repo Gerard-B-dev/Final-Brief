@@ -1,8 +1,6 @@
 // src/store/product.js
-
 import { defineStore } from 'pinia';
 import apiClient from '../axios';
-
 export const useProductStore = defineStore('product', {
     state: () => ({
         products: []

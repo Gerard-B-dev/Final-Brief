@@ -10,13 +10,11 @@
         </div>
     </footer>
 </template>
-
 <script>
 export default {
     name: 'Footer',
 };
 </script>
-
 <style scoped>
 /* Estilos específicos del Footer si es necesario */
 </style>
