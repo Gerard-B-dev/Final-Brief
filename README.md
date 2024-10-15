@@ -5,7 +5,7 @@
 
 ## github link:    https://github.com/Gerard-B-dev/Final-Brief-Front-Back
 
-
+## canva link: https://www.canva.com/design/DAGTrBQN3Lo/B50tGwR39fCcyuk24Endzw/edit?utm_content=DAGTrBQN3Lo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 ## Project Description
 
